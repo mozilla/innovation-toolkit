@@ -11,7 +11,6 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php wp_head(); ?>
-  <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -23,9 +22,9 @@
       <div class="site-branding">
         <?php
           if ( is_front_page() && is_home() ) : ?>
-            <h1 class="site-title"><a href="<?php echo SITE_URL; ?>" title="<?php echo SITE_NAME; ?>" rel="home"><img src="<?php echo THEME_PATH.'/images/logo.png';?>" alt="<?php echo SITE_NAME; ?>" class="img-responsive" /></a></h1>
+            <h1 class="site-title"><a href="<?php echo SITE_URL; ?>" title="<?php echo SITE_NAME; ?>" rel="home"><img src="https://toolkit.mozilla.org/wp-content/uploads/2016/09/logo.png" alt="<?php echo SITE_NAME; ?>" class="img-responsive" /></a></h1>
           <?php else : ?>
-            <p class="site-title"><a href="<?php echo SITE_URL; ?>" title="<?php echo SITE_NAME; ?>" rel="home"><img src="<?php echo THEME_PATH.'/images/logo.png';?>" alt="<?php echo SITE_NAME; ?>" class="img-responsive" /></a></p>
+            <p class="site-title"><a href="<?php echo SITE_URL; ?>" title="<?php echo SITE_NAME; ?>" rel="home"><img src="https://toolkit.mozilla.org/wp-content/uploads/2016/09/logo.png" alt="<?php echo SITE_NAME; ?>" class="img-responsive" /></a></p>
           <?php endif; 
         ?>
       </div><!-- .site-branding -->
