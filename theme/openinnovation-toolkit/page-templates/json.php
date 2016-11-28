@@ -15,6 +15,8 @@ switch($action) {
 		$duration = filter_input(INPUT_GET, 'duration');
 		$outcomes = filter_input(INPUT_GET, 'outcomes');
 		$search_text = filter_input(INPUT_GET, 'search_text');
+    $search_text = sanitize_text_field($search_text);
+    $search_text = preg_replace('/[^a-zA-Z0-9-_ \.]/','', $search_text);
 
 		$page_size = 99;
 

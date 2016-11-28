@@ -562,6 +562,8 @@ function oit_all_methods($args=null) {
   if(!empty($process_slug)) {
     if($process_slug === 'search') {
       $search_text = filter_input(INPUT_POST, 'search_text');
+      $search_text = sanitize_text_field($search_text);
+      $search_text = preg_replace('/[^a-zA-Z0-9-_ \.]/','', $search_text);
       $args['s'] = $search_text;
     } else {
       $args['tax_query'] = array(
@@ -1276,9 +1278,10 @@ function oit_search_form() {
   if(!empty($process_slug)) {
     if($process_slug === 'search') {
       $search_text = filter_input(INPUT_POST, 'search_text');
+      $search_text = sanitize_text_field($search_text);
+      $search_text = preg_replace('/[^a-zA-Z0-9-_ \.]/','', $search_text);
     }
   }
-
 
   $return .= '<form role="search" method="post" id="searchform" class="searchform" action="'.SITE_URL.'/methods/search/">';
     $return .= '<div>';
