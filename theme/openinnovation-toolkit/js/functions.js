@@ -43,16 +43,17 @@ if (_dntStatus !== 'Enabled'){
   var captchaContainer = null;
   var loadCaptcha = function() {
     console.log("Load Captcha");
-//    console.log(jQuery('#captcha_container').length);
-//    if(jQuery('#captcha_container').length > 0) {
-//      var siteKey = jQuery('#captcha_container').data("sitekey");
+    console.log(jQuery('#captcha_container').length);
+    if(jQuery('#captcha_container').length > 0) {
+      var siteKey = jQuery('#captcha_container').data("sitekey");
+      console.log(siteKey);
       captchaContainer = grecaptcha.render('captcha_container', {
-        'sitekey' : "6LcuJSUTAAAAAGfyCSFI4zN_o0TKkPTokmvH0qt3",
+        'sitekey' : siteKey,
         'callback' : function(response) {
           console.log(response);
         }
       });
-//    }
+    }
   };
 }
 
