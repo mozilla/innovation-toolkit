@@ -11,7 +11,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php wp_head(); ?>
-  <?php if(is_page(214)) :
+  <?php if(is_page(1259)) :
     echo '<script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>';
   endif; ?>
 </head>
