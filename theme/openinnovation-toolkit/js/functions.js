@@ -24,6 +24,35 @@ jsonURL = siteURL + '/json';
 ajaxURL = siteURL + '/ajax';
 
 
+var _dntStatus = navigator.doNotTrack || navigator.msDoNotTrack;
+var fxMatch = navigator.userAgent.match(/Firefox\/(\d+)/);
+var ie10Match = navigator.userAgent.match(/MSIE 10/i);
+var w8Match = navigator.appVersion.match(/Windows NT 6.2/);
+
+
+if (fxMatch && Number(fxMatch[1]) < 32) {
+ // Can't say for sure if it is 1 or 0, due to Fx bug 887703
+ _dntStatus = 'Unspecified_0';
+} else if (ie10Match && w8Match) {
+ // IE10 on Windows 8 does not Enable based on user intention
+ _dntStatus = 'Unspecified_1';
+} else {
+ _dntStatus = { '0': 'Disabled', '1': 'Enabled' }[_dntStatus] || 'Unspecified_3';
+}
+if (_dntStatus !== 'Enabled'){
+  var captchaContainer = null;
+  var loadCaptcha = function() {
+    if(jQuery('#captcha_container').length > 0) {
+      var siteKey = jQuery('#captcha_container').data("sitekey");
+      captchaContainer = grecaptcha.render('captcha_container', {
+        'sitekey' : siteKey,
+        'callback' : function(response) {
+          console.log(response);
+        }
+      });
+    }
+  };
+}
 
 ( function( $ ) {
   $.fn.equalizeHeights = function(){
