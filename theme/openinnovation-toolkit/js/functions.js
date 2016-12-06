@@ -39,14 +39,12 @@ if (fxMatch && Number(fxMatch[1]) < 32) {
 } else {
  _dntStatus = { '0': 'Disabled', '1': 'Enabled' }[_dntStatus] || 'Unspecified_3';
 }
-console.log(_dntStatus);
 if (_dntStatus !== 'Enabled'){
   var captchaContainer = null;
   var loadCaptcha = function() {
     console.log("Load Captcha");
     if(jQuery('#captcha_container').length > 0) {
       var siteKey = jQuery('#captcha_container').data("sitekey");
-      console.log(siteKey);
       captchaContainer = grecaptcha.render('captcha_container', {
         'sitekey' : siteKey,
         'callback' : function(response) {
