@@ -42,15 +42,15 @@ if (fxMatch && Number(fxMatch[1]) < 32) {
 if (_dntStatus !== 'Enabled'){
   var captchaContainer = null;
   var loadCaptcha = function() {
-    if(jQuery('#captcha_container').length > 0) {
-      var siteKey = jQuery('#captcha_container').data("sitekey");
-      captchaContainer = grecaptcha.render('captcha_container', {
-        'sitekey' : siteKey,
-        'callback' : function(response) {
-          console.log(response);
-        }
-      });
-    }
+//    if(jQuery('#captcha_container').length > 0) {
+//      var siteKey = jQuery('#captcha_container').data("sitekey");
+//      captchaContainer = grecaptcha.render('captcha_container', {
+//        'sitekey' : siteKey,
+//        'callback' : function(response) {
+//          console.log(response);
+//        }
+//      });
+//    }
   };
 }
 
