@@ -44,7 +44,7 @@ function oit_contribute_form_recaptcha() {
   
   $return .= '<div class="form-wrapper">';
     $return .= '<div class="custom-form">';
-      $return .= '<form name="frmContribute" enctype="multipart/form-data" method="post" action="'.SITE_URL.'/ajax/contribute" class="ajax-form">';
+      $return .= '<form name="frmContribute" enctype="multipart/form-data" method="post" action="'.SITE_URL.'/ajax/contribute-recaptcha" class="ajax-form">';
 
         $return .= '<div class="ajax-msg"></div>';
 
