@@ -227,7 +227,7 @@ function twentysixteen_scripts() {
 
   
   // Google Recaptcha.
-  wp_enqueue_script('recaptcha', 'https://www.google.com/recaptcha/api.js?render=explicit', array('jquery'), '', false);
+  wp_enqueue_script('recaptcha', '//www.google.com/recaptcha/api.js?render=explicit', array('jquery'), '', false);
   
   // Loading javascripts and jquery plugins
   wp_enqueue_script('jquery-easing', THEME_PATH . '/js/jquery.easing.1.3.js', array('jquery'), '1.3');
