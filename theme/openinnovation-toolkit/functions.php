@@ -214,21 +214,16 @@ function twentysixteen_javascript_detection() {
  * @since Twenty Sixteen 1.0
  */
 function twentysixteen_scripts() {
-  global $post;
 	// Add custom fonts, used in the main stylesheet.
 //	wp_enqueue_style( 'twentysixteen-fonts', twentysixteen_fonts_url(), array(), null );
   
   wp_enqueue_style('font-mozilla-fira', 'https://code.cdn.mozilla.net/fonts/fira.css', array(), false, 'screen,projection,print');
   wp_enqueue_style('font-CooperHewitt', THEME_PATH.'/fonts/fonts.css', array(), false, 'screen,projection,print');
-  
+
 	// Theme stylesheet.
 	wp_enqueue_style( 'twentysixteen-style', get_stylesheet_uri() );
   wp_enqueue_style( 'twentysixteen-styles', THEME_PATH.'/stylesheets/styles.css' );
 
-  
-  // Google Recaptcha.
-  wp_enqueue_script('recaptcha', '//www.google.com/recaptcha/api.js?render=explicit', array('jquery'), '', false);
-  
   // Loading javascripts and jquery plugins
   wp_enqueue_script('jquery-easing', THEME_PATH . '/js/jquery.easing.1.3.js', array('jquery'), '1.3');
   wp_enqueue_script('jquery-showLoading', THEME_PATH . '/js/jquery.showLoading.min.js', array('jquery'), '1.0', false);
@@ -245,7 +240,7 @@ function twentysixteen_scripts() {
   wp_enqueue_script( 'jquery-bxslider', THEME_PATH . '/js/jquery.bxslider.min.js', array(), 'v4.1.2', false );
   wp_enqueue_style( 'bxslider', THEME_PATH .'/css/jquery.bxslider.css' );
   
-	wp_enqueue_script( 'twentysixteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery', 'recaptcha' ), '20151204', true );
+	wp_enqueue_script( 'twentysixteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20151204', true );
 }
 add_action( 'wp_enqueue_scripts', 'twentysixteen_scripts' );
 

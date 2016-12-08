@@ -106,6 +106,23 @@ var loadCaptcha = function() {
       $('.method-card').equalizeHeights();
       $('#methods-content, .method-filters').equalizeHeights();
     });
+    
+    if (_dntStatus !== 'Enabled'){
+      var captchaContainer = null;
+      console.log("Load Captcha");
+      console.log(jQuery('#captcha_container').length);
+      if(jQuery('#captcha_container').length > 0) {
+        var siteKey = jQuery('#captcha_container').data("sitekey");
+        console.log(siteKey);
+        captchaContainer = grecaptcha.render('captcha_container', {
+          'sitekey' : siteKey,
+          'callback' : function(response) {
+            console.log(response);
+          }
+        });
+      }
+    }
+    
   }
   
   function resizeWindow() {
@@ -207,26 +224,6 @@ var loadCaptcha = function() {
 
   var body    = $( 'body' ), _window = $( window );
   ( function() {
-    
-    if (_dntStatus !== 'Enabled'){
-      var captchaContainer = null;
-      console.log("Load Captcha");
-      console.log(jQuery('#captcha_container').length);
-      if(jQuery('#captcha_container').length > 0) {
-        var siteKey = jQuery('#captcha_container').data("sitekey");
-        console.log(siteKey);
-        captchaContainer = grecaptcha.render('captcha_container', {
-          'sitekey' : siteKey,
-          'callback' : function(response) {
-            console.log(response);
-          }
-        });
-      }
-    }
-    
-    
-    
-    
     loadWindow();
     $(window).resize(resizeWindow);
     $(window).scroll(scrollWindow);
