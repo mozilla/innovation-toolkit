@@ -44,7 +44,7 @@ if (fxMatch && Number(fxMatch[1]) < 32) {
 var loadCaptcha = function() {
   console.log("Recaptcha Loaded!");
   if (_dntStatus !== 'Enabled' && recaptchaLoaded===false){
-    if (grecaptcha === undefined || grecaptcha === null) {
+    if (grecaptcha != undefined || grecaptcha != null) {
       var captchaContainer = null;
       if(jQuery('#captcha_container').length > 0) {
         var siteKey = jQuery('#captcha_container').data("sitekey");
