@@ -23,7 +23,7 @@ siteURL = get_hostname(document.location.href);
 jsonURL = siteURL + '/json';
 ajaxURL = siteURL + '/ajax';
 
-
+var recaptchaLoaded = false;
 var _dntStatus = navigator.doNotTrack || navigator.msDoNotTrack;
 var fxMatch = navigator.userAgent.match(/Firefox\/(\d+)/);
 var ie10Match = navigator.userAgent.match(/MSIE 10/i);
@@ -43,6 +43,24 @@ if (fxMatch && Number(fxMatch[1]) < 32) {
 
 var loadCaptcha = function() {
   console.log("Recaptcha Loaded!");
+  if (_dntStatus !== 'Enabled' && recaptchaLoaded===false){
+    if(grecaptcha) {
+      var captchaContainer = null;
+      console.log("Load Captcha");
+      console.log(jQuery('#captcha_container').length);
+      if(jQuery('#captcha_container').length > 0) {
+        var siteKey = jQuery('#captcha_container').data("sitekey");
+        console.log(siteKey);
+        captchaContainer = grecaptcha.render('captcha_container', {
+          'sitekey' : siteKey,
+          'callback' : function(response) {
+            console.log(response);
+          }
+        });
+        recaptchaLoaded = true;
+      }
+    }
+  }
 };
 
 
@@ -107,22 +125,7 @@ var loadCaptcha = function() {
       $('#methods-content, .method-filters').equalizeHeights();
     });
     
-    if (_dntStatus !== 'Enabled'){
-      var captchaContainer = null;
-      console.log("Load Captcha");
-      console.log(jQuery('#captcha_container').length);
-      if(jQuery('#captcha_container').length > 0) {
-        var siteKey = jQuery('#captcha_container').data("sitekey");
-        console.log(siteKey);
-        captchaContainer = grecaptcha.render('captcha_container', {
-          'sitekey' : siteKey,
-          'callback' : function(response) {
-            console.log(response);
-          }
-        });
-      }
-    }
-    
+    loadCaptcha();
   }
   
   function resizeWindow() {
