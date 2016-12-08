@@ -44,13 +44,10 @@ if (fxMatch && Number(fxMatch[1]) < 32) {
 var loadCaptcha = function() {
   console.log("Recaptcha Loaded!");
   if (_dntStatus !== 'Enabled' && recaptchaLoaded===false){
-    if(grecaptcha) {
+    if (grecaptcha == null){
       var captchaContainer = null;
-      console.log("Load Captcha");
-      console.log(jQuery('#captcha_container').length);
       if(jQuery('#captcha_container').length > 0) {
         var siteKey = jQuery('#captcha_container').data("sitekey");
-        console.log(siteKey);
         captchaContainer = grecaptcha.render('captcha_container', {
           'sitekey' : siteKey,
           'callback' : function(response) {
