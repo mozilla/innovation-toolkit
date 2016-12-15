@@ -40,9 +40,11 @@ if (fxMatch && Number(fxMatch[1]) < 32) {
  _dntStatus = { '0': 'Disabled', '1': 'Enabled' }[_dntStatus] || 'Unspecified_3';
 }
 
+var loadReCaptcha = function() {
+  console.log("Recaptcha Loaded!");
+}
 
 var loadCaptcha = function() {
-  console.log("Recaptcha Loaded!");
   if (_dntStatus !== 'Enabled' && recaptchaLoaded===false){
     if (grecaptcha != undefined || grecaptcha != null) {
       var captchaContainer = null;
@@ -121,8 +123,6 @@ var loadCaptcha = function() {
       $('.method-card').equalizeHeights();
       $('#methods-content, .method-filters').equalizeHeights();
     });
-    
-    loadCaptcha();
   }
   
   function resizeWindow() {
@@ -228,6 +228,14 @@ var loadCaptcha = function() {
     $(window).resize(resizeWindow);
     $(window).scroll(scrollWindow);
 //    $('#site-navigation').toggleClass('open-menu');
+
+
+    $('.page-template-contribute-recaptcha #chk_terms').change(function(){
+      if(this.checked) {
+        loadCaptcha();
+      }
+    });
+
     
     // Menu Toggle on small screen sizes
     $('.menu-toggle').click(function(e) {
