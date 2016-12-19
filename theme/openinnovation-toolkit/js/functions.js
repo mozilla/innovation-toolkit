@@ -48,6 +48,7 @@ var loadReCaptcha = function() {
 }
 
 var loadCaptcha = function() {
+  console.log("Recaptcha Loaded!");
   if (recaptchaLoaded===false){
     if (grecaptcha != undefined || grecaptcha != null) {
       var captchaContainer = null;
