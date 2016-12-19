@@ -42,14 +42,10 @@ if (fxMatch && Number(fxMatch[1]) < 32) {
 
 var loadReCaptcha = function() {
   console.log("Recaptcha Loaded!");
-  if (_dntStatus !== 'Enabled' && recaptchaLoaded===false){
-    loadCaptcha();
-  }
 }
 
 var loadCaptcha = function() {
-  console.log("Recaptcha Loaded!");
-  if (recaptchaLoaded===false){
+  if (_dntStatus !== 'Enabled' && recaptchaLoaded===false){
     if (grecaptcha != undefined || grecaptcha != null) {
       var captchaContainer = null;
       if(jQuery('#captcha_container').length > 0) {
@@ -213,7 +209,7 @@ var loadCaptcha = function() {
     alert(url.indexOf("://"));
     //find & remove protocol (http, ftp, etc.) and get domain
     if (url.indexOf("://") > -1) {
-//      alert(url);
+      alert(url);
       domain = url.split('/')[2];
     }
     else {
@@ -235,7 +231,7 @@ var loadCaptcha = function() {
 
 
     $('.page-template-contribute-recaptcha #chk_terms').change(function(){
-      if(recaptchaLoaded===false && this.checked) {
+      if(this.checked) {
         loadCaptcha();
       }
     });
