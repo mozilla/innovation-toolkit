@@ -42,10 +42,25 @@ if (fxMatch && Number(fxMatch[1]) < 32) {
 
 var loadReCaptcha = function() {
   console.log("Recaptcha Loaded!");
+  if (_dntStatus !== 'Enabled' && recaptchaLoaded===false){
+    if (grecaptcha != undefined || grecaptcha != null) {
+      var captchaContainer = null;
+      if(jQuery('#captcha_container').length > 0) {
+        var siteKey = jQuery('#captcha_container').data("sitekey");
+        captchaContainer = grecaptcha.render('captcha_container', {
+          'sitekey' : siteKey,
+          'callback' : function(response) {
+            console.log(response);
+          }
+        });
+        recaptchaLoaded = true;
+      }
+    }
+  }
 }
 
 var loadCaptcha = function() {
-  if (_dntStatus !== 'Enabled' && recaptchaLoaded===false){
+  if (recaptchaLoaded===false){
     if (grecaptcha != undefined || grecaptcha != null) {
       var captchaContainer = null;
       if(jQuery('#captcha_container').length > 0) {
