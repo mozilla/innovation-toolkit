@@ -122,7 +122,6 @@ var loadCaptcha = function() {
   
   function loadWindow() {
     configureExternalLinkTarget();
-    loadReCaptcha();
     $('.section-methods').imagesLoaded().done( function( instance ) {
       $('.method-card').equalizeHeights();
       $('#methods-content, .method-filters').equalizeHeights();
