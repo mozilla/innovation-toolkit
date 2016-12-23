@@ -1194,9 +1194,7 @@ function oit_contribute_form() {
           $return .= '<input type="checkbox" id="chk_terms" name="chk_terms" class="required" /> &nbsp; I agree to the <a href="#" data-toggle="modal" data-target="#modalSubmissionTerms">Toolkit Submission Terms</a>';
         $return .= '</div>';
         
-//        $return .= '<div class="field-group field-group-recaptcha">';
-//          $return .= '<div class="g-recaptcha" data-sitekey="6LcuJSUTAAAAAGfyCSFI4zN_o0TKkPTokmvH0qt3"></div>';
-//        $return .= '</div>';
+        $return .= '<div id="captcha_container" class="field-group field-group-recaptcha" data-sitekey="6LcuJSUTAAAAAGfyCSFI4zN_o0TKkPTokmvH0qt3"></div>';
         
         $return .= '<div class="field-group field-group-action">';
           $return .= '<input type="hidden" name="http_referer" value="'.$_SERVER['HTTP_REFERER'].'" />';
