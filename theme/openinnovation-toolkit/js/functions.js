@@ -237,7 +237,7 @@ var loadReCaptcha = function() {
 //    $('#site-navigation').toggleClass('open-menu');
 
 
-    $('.page-template-contribute-recaptcha #chk_terms').change(function(){
+    $('#chk_terms').change(function(){
       if(recaptchaLoaded===false && this.checked) {
         if($('#captcha_container').length > 0) {
           loadCaptcha();
