@@ -151,6 +151,9 @@ switch($action) {
           $result['success'] = 1;
           $result['message'] = '<h3 class="heading3">Thank you so much for contributing to the toolkit!</h3> The involvement of community members like you is what makes this project truly open source. Feel from to come back to this page at any time if you have further suggestions, ideas, or insights. We&rsquo;re always looking for ways to improve.';
         }
+      } else {
+        $result['success']	= 0;
+        $result['message'] 	= "Invalid captcha.";
       }
     }
 
